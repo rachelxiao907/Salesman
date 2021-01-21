@@ -4,7 +4,7 @@
 Michelle Lo
 Justine Kang
 Reshmi Anwar
-Miles Davis
+Miles Davies
 Shyne Choi
 Logan Ruzzier
 Rachel Xiao
