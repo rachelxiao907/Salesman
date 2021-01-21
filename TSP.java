@@ -59,33 +59,37 @@ public class TSP {
   }
 
   public static int hmm(int[][] data, int runs){
-    int temp=0;
-    int temp2=0;
-    int total=0;
-    int answer=2147483647;
+    int temp = 0;
+    int temp2 = 0;
+    int total = 0;
+    int answer = 2147483647;
     ArrayList<Integer> totals = new ArrayList<>();
     ArrayList<Integer> A = new ArrayList<>();
-    for(int i=0;i<runs;i++){
-      temp=(Math.round((int)(Math.random()*(data.length-1))));
-      temp2=temp;
-      while(temp2==temp){temp2=(Math.round((int)(Math.random()*(data.length))));}
+    for(int i = 0;i < runs; i++){
+      temp = (Math.round((int)(Math.random()*(data.length-1))));
+      temp2 = temp;
+      while(temp2 == temp){temp2 = (Math.round((int)(Math.random()*(data.length))));}
       A.add(temp);
       A.add(temp2);
-      total+=data[temp][temp2];
-      for(int k=0;k<data.length-1;k++){
-        temp=temp2;
-        while(A.contains(temp2)&&k<data.length-2){temp2=(Math.round((int)(Math.random()*(data.length))));}
-        total+=data[temp][temp2];
+      total += data[temp][temp2];
+      for(int k = 0;k < data.length-1; k++){
+        temp = temp2;
+        while (A.contains(temp2) && k<data.length-2) {
+          temp2 = (Math.round((int)(Math.random()*(data.length))));
+        }
+        total += data[temp][temp2];
         A.add(temp2);
       }
       totals.add(total);
-      total=0;
+      total = 0;
       A.clear();
     }
     Integer[] finall = new Integer[runs];
     totals.toArray(finall);
-    for(int i=0;i<finall.length;i++){
-      if(finall[i]<answer){answer=finall[i];}
+    for(int i = 0; i < finall.length; i++){
+      if(finall[i]<answer){
+        answer = finall[i];
+      }
     }
     return answer;
   }
