@@ -49,7 +49,13 @@ public class TSP {
       System.out.println("}");
     }
     System.out.println();
-    System.out.println(hmm(distances, 1000));
+
+    //calculate permutations using factorial to get high probability of success
+    int runs = 1;
+    for (int i = 2; i <= cities.size(); i++) {
+      runs = runs * i;
+    }
+    System.out.println(hmm(distances, runs * 5));
   }
 
   public static int hmm(int[][] data, int runs){
