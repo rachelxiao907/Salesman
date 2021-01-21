@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 public class TSP {
   public static void main(String[] args) throws FileNotFoundException {
-    Scanner n = new Scanner(new File("Cities.txt"));
+    Scanner n = new Scanner(System.in);
     ArrayList<String> cities = new ArrayList<String>();
     ArrayList<String> lines = new ArrayList<String>();
     while (n.hasNextLine()) {
@@ -31,7 +31,7 @@ public class TSP {
       distances[cities.indexOf(jia)][cities.indexOf(yi)] = d;
       distances[cities.indexOf(yi)][cities.indexOf(jia)] = d;
     }
-    
+
 /*
     //Print out cities arraylist
     System.out.println("Cities:");
