@@ -4,8 +4,11 @@ public class TSP {
   public static void main(String[] args) throws FileNotFoundException {
     Scanner n = new Scanner(new File("Cities.txt"));
     ArrayList<String> cities = new ArrayList<String>();
+    ArrayList<String> lines = new ArrayList<String>();
     while (n.hasNextLine()) {
-      Scanner l = new Scanner(n.nextLine());
+      String newLine = n.nextLine();
+      lines.add(newLine);
+      Scanner l = new Scanner(newLine);
       String jia = l.next();
       l.next();
       String yi = l.next();
@@ -17,10 +20,9 @@ public class TSP {
       }
     }
     //assign distances
-    n = new Scanner(new File("Cities.txt"));
     int[][] distances = new int[cities.size()][cities.size()];
-    while (n.hasNextLine()) {
-      Scanner l = new Scanner(n.nextLine());
+    while (lines.size() > 0) {
+      Scanner l = new Scanner(lines.remove(0));
       String jia = l.next();
       l.next();
       String yi = l.next();
@@ -29,7 +31,8 @@ public class TSP {
       distances[cities.indexOf(jia)][cities.indexOf(yi)] = d;
       distances[cities.indexOf(yi)][cities.indexOf(jia)] = d;
     }
-
+    
+/*
     //Print out cities arraylist
     System.out.println("Cities:");
     System.out.print("[");
@@ -38,6 +41,7 @@ public class TSP {
     }
     System.out.println("]");
     System.out.println();
+
 
     //Print out  distances 2D array
     System.out.println("Distances");
@@ -49,6 +53,7 @@ public class TSP {
       System.out.println("}");
     }
     System.out.println();
+*/
 
     //calculate permutations using factorial to get high probability of success
     int runs = 1;
